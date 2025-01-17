@@ -7,8 +7,9 @@ import { create } from "@paulkinlan/f";
 import { prompt, ChromePromptConfiguration } from "@paulkinlan/reactive-prompt/chrome"
 
 // Create the builder - we have to tell it which reactive prompt we want to use.
+const config = new ChromePromptConfiguration();
 const f = create(
-  prompt, ChromePromptConfiguration
+  prompt, config
 );
 
 // Create a function that sums two numbers
