@@ -18,6 +18,18 @@ const sum = await f`Sum two numbers`;
 console.log(sum(22,44)) // Run the code.
 ```
 
+## Using Claude (or other LLMs)
+
+[reactive-prompts](https://github.com/paulkinlan/reactive-prompts) offers the developer to use the following LLMs:
+
+- Gemini - `import { prompt, GeminiPromptConfiguration } from "@paulkinlan/reactive-prompt/gemini`
+- Gemini Nano in Chrome - `import { prompt, ChromePromptConfiguration } from "@paulkinlan/reactive-prompt/chrome`
+- Claude - `import { prompt, ClaudePromptConfiguration } from "@paulkinlan/reactive-prompt/claude`
+- OpenAI - `import { prompt, OpenAIPromptConfiguration } from "@paulkinlan/reactive-prompt/openai`
+- Ollama - `import { prompt, OllamaPromptConfiguration } from "@paulkinlan/reactive-prompt/ollama`
+
+You can pass in the exported `prompt` and configuration objects in to `create` and `f` will use these libraries as the LLM exectution engine.
+
 ## Recompiling the function
 
 Because the prompting library is based on [reactive-prompts](https://github.com/paulkinlan/reactive-prompts) it is possible to recompile the function when the prompt uses a signal to change the prompt.
