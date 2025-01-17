@@ -1,0 +1,34 @@
+<script type="module">
+  import { create } from "@paulkinlan/f";
+  import {
+    prompt,
+    ClaudePromptConfiguration
+  } from "@paulkinlan/reactive-prompt/claude";
+
+  const config = new ClaudePromptConfiguration({ debug: true });
+
+  config.dangerouslyAllowBrowser = true;
+  config.key = window.prompt("API Key");
+
+  const f = create(
+    prompt,
+    config
+  );
+
+  const fetchNews = await f`fetch JSON from https://api.spaceflightnewsapi.net/v4/articles/`;
+
+  // Get the news.
+  const news = await fetchNews();
+
+  // If we can describe the object UI gnereation is a bit easier.
+  const schema = await f`Return a JSON Schema for a given object. The schema should be in the format defined in https://json-schema.org/understanding-json-schema/reference/object.html and should include all the properties of the object. The schema should include the type of the property, the format of the property, the required status of the property, and the description of the property. The schema should include all the properties of the object. The schema should include the type of the property, the format of the property, the required status of the property, and the description of the property.`;
+
+  const schemeDescription = schema(news);
+
+  const addSpaceList = await f`Using the data defined in <output> create a UI that will best display the space flight information. The developer will provide the data as a parameter and it will be in the format defined in <output>.
+    
+  <output>${JSON.stringify(schemeDescription)}</output>`;
+
+  document.body.appendChild(addSpaceList(news));
+
+</script>
