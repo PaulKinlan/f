@@ -11,7 +11,9 @@ const f = create(
   prompt, ChromePromptConfiguration
 );
 
-const sum = await f`Sum two numbers`
+// Create a function that sums two numbers
+const sum = await f`Sum two numbers`;
+
 console.log(sum.toString());  // See the code that is produced
 console.log(sum(22,44)) // Run the code.
 ```
