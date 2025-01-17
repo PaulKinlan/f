@@ -12,15 +12,14 @@
   ],
   "main": "./dist/index.js",
   "module": "./dist/index.js",
-  "dependencies": {},
   "exports": {
     ".": {
       "import": "./dist/index.js"
     }
   },
   "devDependencies": {
-    "vite": "^5.1.8",
-    "@paulkinlan/reactive-prompt": "^0.6.9"
+    "@paulkinlan/reactive-prompt": "^0.6.16",
+    "vite": "^5.1.8"
   },
   "author": "Paul Kinlan <paul.kinlan@gmail.com>",
   "license": "Apache-2.0",

@@ -1,0 +1,17 @@
+<html>
+<script type=module>
+import { create } from "@paulkinlan/f";
+import { prompt, ChromePromptConfiguration } from "@paulkinlan/reactive-prompt/chrome"
+
+const f = create(
+  prompt, new ChromePromptConfiguration()
+);
+
+const todo = await f`A client-side todo-list web app. Return a DOM element that the developer will attach to the DOM. The user can add items, remove items, and mark items as done. The user can also filter items by done status.`
+
+document.body.appendChild(todo())
+
+
+</script>
+
+</html>
